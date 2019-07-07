@@ -1,0 +1,24 @@
+---
+title: 'BDSI R Markdown: Exercise 1'
+output:
+  pdf_document: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing the code "chunk" below, which adds the number 3 to itself, by clicking the *Run* button (the green triangle in the upper right of chunk) or by placing your cursor inside it and pressing *Cmd+Shift+Enter* (*Ctrl+Shift+Enter* on Windows) at the same time. The output should appear immediately below the chunk. 
+
+```{r}
+3+3;
+```
+
+Now, add a new chunk below. To do so, put your cursor where you want it to go and click *Code* > *Insert Chunk* from the toolbar or  press *Cmd+Option+I* (*Ctrl+Alt+I*). Type in your favorite arithmetic operation and try running the chunk. 
+
+
+In the chunk you just added, change the `{r}` to `{r, echo = FALSE}` and re-knit the document. Then change to `{r, eval = FALSE}` and re-knit again. Hypothesize what these changes did?
+
+Remove the brackets ("{" and "}") from the following sentence: "The probability that 10 independent Bernoulli trials each with probability of success equal to 0.5 will yield at most 4 successes is `{r pbinom(q = 4, size = 10, prob = 0.5)}`" This is an example of an *in-line* chunk; instead of making a stand-alone code chunk, you are running `R` directly in the text. 
+
+Inspect the top of the `.Rmd` file. Find the 'Knit' dropdown menu at the top file, and choose the 'Knit to Word' option. Inspect the top of the `.Rmd` file again; what was added? 
+
+
