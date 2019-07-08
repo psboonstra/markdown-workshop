@@ -4,6 +4,13 @@ author: "https://github.com/psboonstra/markdown-workshop"
 date: "BDSI 2019; Univeristy of Michigan"
 geometry: margin=0.5in
 output: 
+  ioslides_presentation:
+    transition: 0.1
+    css: temp_fancy.css
+    includes:
+      in_header: slides_header.html
+    incremental: no
+    widescreen: false
   pdf_document:
     highlight: zenburn
     includes:
@@ -13,13 +20,6 @@ output:
     fig_caption: false
     fig_height: 6
     fig_width: 3
-  ioslides_presentation:
-    transition: 0.1
-    css: temp_fancy.css
-    includes:
-      in_header: slides_header.html
-    incremental: no
-    widescreen: false
 always_allow_html: yes
 ---
 
