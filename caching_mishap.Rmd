@@ -1,0 +1,18 @@
+---
+title: "Caching mishap"
+author: "Phil, frequently"
+output:
+  pdf_document: default
+---
+
+```{r, echo = TRUE, cache = TRUE}
+x <- rnorm(n = 1, mean = 0);
+```
+
+```{r, echo = TRUE, cache = TRUE}
+x;
+```
+
+
+
+

@@ -1,0 +1,59 @@
+slides > slide {
+  width: 900px;
+  height: 750px;
+  left: 46%;
+  top: 45%;
+  font-family: "Times New Roman", Times, serif;
+  color: #00274C;
+  background-color: #FFFFFF;
+  overflow: scroll;
+}
+
+iframe {
+  height: 500px;
+}
+
+midcenter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+h2 { 
+  color: #00274C;
+}
+
+h3 { 
+  color: #9B9A6D;
+}
+
+
+slides > .title-slide hgroup h1 {
+  color: #00274C;
+}
+
+slides > slide:not(.nobackground):before {
+    width: 200px;
+    height: 31px;
+    background-size: 200px 31px;
+    position: absolute;
+    bottom: 35px;
+    left: 100px;
+}
+
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+
+.gdbar img {
+    width: 300px !important;
+    height: 46.5px !important;
+    margin: 8px 8px;
+}
+
+.gdbar {
+    width: 350px !important;
+    height: 69.75px !important;
+}
+
+#margins > p { margin-top: -50px; }
