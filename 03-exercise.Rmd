@@ -1,0 +1,67 @@
+---
+title: 'BDSI R Markdown: Exercise 3'
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
+---
+
+
+## Instructions
+
+In these exercises you will explore the xenograft data. Create code chunks to do the necessary calculations and save your results. Write English prose to answer the questions.
+
+## Read in the data
+
+Create an object called `tumor_growth` object by reading in the data using 
+`read_csv`. 
+
+Look over the code chunk below and confer with your group about what you think 
+the code is doing. Be sure to look up any unfamiliar functions. 
+
+## Calculate relative size
+
+```{r}
+tumor_growth <- 
+  tumor_growth %>% 
+  group_by(ID) %>% 
+  arrange(Day) %>% 
+  mutate(Size_Day0 = first(Size),
+         relative_Size = log(Size / Size_Day0)) %>% 
+  ungroup() %>% 
+  arrange(ID)
+```
+
+## Calculate summary statistics
+
+Separately for each treatment group, create code chunks to calculate for each of days 0, 7, and 14 the following statistics: the mean tumor size, the mean
+*relative* tumor size, and the number of measurements. Report these statistics. Which group had the largest typical growth between day 0 and days 7 / 14? Which group had the most measurements taken on day 14? Why do you think the mice have different
+numbers of measurements taken on these days?
+
+
+*Hint* You might find useful the `n()` function useful. It counts the current group 
+size (but it only works inside of `summarize` or `mutate`). Check the help page
+if needed.
+
+## Plots
+
+Next, use `ggplot` to create a 'spaghetti plot' of the tumor growth data that
+plots tumor size against day of the measurement. Each mouse should have its own
+line (the spaghetti strand), and the strand should be colored by the treatment
+group it is in. You will want to use `geom_line` and use `group = ID` as an
+aesthetic to tell the geom that the values from the same ID should be connected
+by the line. 
+
+Create two spaghetti plots: one with `Size` variable on the $y$-axis and one with `relative_Size` variable on the $y$-axis. 
+
+Try to come up with some ways to make the plot fancier. Some suggestions:
+
+  (i) Make more informative axis labels using the `labs` or the `scale_x_continuous`/
+  `scale_y_continuous` functions. 
+  (ii) Increase the font size using the `theme` function
+  (iii) Try to layer on to your plot some group-level summary statistics. You 
+  may be able to do so with a call to `geom_point`.
+  
+## Knit everything together
+

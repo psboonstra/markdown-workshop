@@ -1,9 +1,11 @@
 #' ---
 #' title: "BDSI R Markdown: Exercise 2"
 #' author: "type your name here"
-#' date: "8-July-2019"
+#' date: "14-June-2021"
 #' geometry: margin=1.5cm
 #' output: 
+#'  html_document: 
+#'    toc: yes
 #'  pdf_document: 
 #'    toc: yes
 #'  word_document:
@@ -12,6 +14,17 @@
 #' header-includes:
 #'  - \usepackage{booktabs}
 #' ---
+#' 
+#'<style type="text/css">
+#'  body{
+#'  font-size: 18pt;
+#'}
+#'  pre{
+#'  font-size: 18pt;
+#'}
+#'</style>
+  
+  
 
 #+ echo=F, cache = F, include = F
 
@@ -28,57 +41,46 @@ library(knitr);
 #' # Main header
 #' 
 #' This exercise assumes you are reading the `R` script and not the knitted output. 
-#' **TASK 1** Add yourself as the author of this document on line 3. 
+#' **Task 1** Add yourself as the author of this document on line 3. 
 #' 
-#' **TASK 2** When you read this, trying *knitting* this document using *Cmd+Shift+K* /
+#' **Task 2** *Knit* this document using *Cmd+Shift+K* /
 #' *Ctrl+Shift+K*. Note how Markdown creates an automatic table of contents 
 #' with click-able links. 
 #' 
-#' **TASK 3** Cut the code on lines 9 and 10 and paste them to go before the 
-#' code on lines 7 to 8. Then re-knit the document. Notice how **knitr** will 
-#' pay attentiononly to the first output selection and ignore all others. Don't 
+#' **Task 3** On line 7 change `html_document` to `word_document`, and on line
+#' 11 change `word_document` to `html_document`. **knitr** will 
+#' pay attention only to the first output selection and ignore all others. Don't 
 #' worry if what you knit doesn't look very pretty as a .docx. Now undo what you
-#' just did so that your selected output format is again a pdf. 
+#' just did so that your selected output format is again a html 
 #' 
 #' ## Sub header
 #' 
 #' Note the clever use of the # sign at the beginning of each line number. 
-#' As always, regular `R` will ignore any line that starts with a #, as these do. 
+#' As usual, "regular" `R` will ignore any line that starts with a #, as these do. 
 #' Thus, you can treat this script exactly as you would any other `R` script. 
-#' But, when you knit this script using **knitr**, the #' indicates to that this 
-#' is actually markdown text and should be interpreted as such. **TASK 4** Add 
-#' some more text at the end of this sentence and then press *enter* or
-#' *return*. 
-#' 
-#' Notice how `R`Studio automatically added to the #' to the beginning of the line. 
-#' 
-#' Here is an ordered list.
-#' 
-#'  (i) item 1
-#'  (ii) item 2
-#'  (iii) **TASK 5** Here's some perhaps non-intuitive behavior: change the 
-#'  '(iii)' to '(iv)' and re-knit the document. Does anything change?
-#'   
-#' Here we use ">" to indicate the use of a block quote, which will be set off 
-#' by indentation. 
-#'   
-#' > *Professor Zawistowski is a genius*
-#' 
+#' But, when you knit this script using **knitr**, the #' (the hash followed by an
+#' apostrophe) indicates to that this is actually markdown text and should 
+#' be interpreted as such. **Task 4** Add some more text after this sentence
+#' and then press *enter* or *return*.
+ 
+
+#' RStudio should automatically added an #' at the beginning of each new line
+#' that you start.  
 #' 
 #' 
 #' ## Keeping track of your margins
 #' 
 #' Your knitted document is not affected by single linebreaks. That is, you can
-#' press 'enter' once without affecting the appearance of your final document (on
-#' the other hand, two linebreaks denote a new paragraph). Take advantage of this 
+#' press 'enter' once without affecting the appearance of your final document. On
+#' the other hand, two linebreaks denote a new paragraph. Take advantage of this 
 #' feature to maintain the readability of your text by starting a new line before 
 #' you start to spill off the screen of your text editor, like this: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 #' 
-#' On my `R`Studio application, I have set it to denote an 80-character width, 
+#' On my RStudio application, I have set it to denote an 80-character width, 
 #' which is the approximate point at which I try to jump to a new line when I'm 
 #' typing.
 #' 
-#' **TASK 6** To do this on your own app: go to the `R`Studio menu, 
+#' **Task 6** To do this on your own app: go to the RStudio menu, 
 #' then Preferences > Code > Display > Show Margin. Then enter your desired 
 #' width. After pressing 'Ok', you should see a slight vertical line somewhere 
 #' towards the right of your screen (depending on your chosen number). 
@@ -97,19 +99,19 @@ y = 3 * x + rnorm(length(x));
 #' ## Some data analyis
 #' 
 #' I'm using an in-line chunk to report that the observed mean of `x` is `r mean(x)`
-#' **TASK 7** Add another in-line chunk to report the observed standard deviation
+#' **Task 7** Add another in-line chunk to report the observed standard deviation
 #' of `x`. 
 #' 
 #' ## The Datasaurus dozen
 
 #+ echo=T, cache = F
 
-#Here is a regular R comment: it will be printed to the final knitted document 
-#if echo = T. You need to run this chunk to install this package once:
+# Here is a regular R comment: it will be printed to the final knitted document 
+# if echo = T. You need to run this chunk to install this package once:
 
 if(!require(datasauRus)) install.packages("datasauRus",repos = "http://cran.us.r-project.org");
 
-#You need to run this chunk to lad this package anytime you open R:
+#You need to run this chunk to load this package anytime you open R:
 
 library(datasauRus);
 
@@ -123,7 +125,7 @@ library(datasauRus);
 #' Thus, the chunk first checks to see if each package has already been installed 
 #' before trying to re-install it. 
 #'  
-#' Here's what the top of the datasaura dataset looks like in raw form:
+#' Here's what the top of the datasauras dataset looks like in raw form:
 
 as_tibble(datasaurus_dozen);
 
@@ -147,17 +149,20 @@ print(datasaurus_summarized)
 kable(datasaurus_summarized);
 
 #' We can also use the **kableExtra** package to make our tables extra fancy. 
-#' However, this makes use of some html features the pandoc will not understand 
-#' when creating a .docx file. 
+#' However, this makes use of some features that will not work for all file 
+#' formats.
 #' 
-#' **TASK 8** To see this, go back to the YAML header of this document and, 
-#' again, cut the code on lines 9 and 10 and paste it before the code on lines 
-#' 7 and 8. After knitting, go back to this table: it's just a jumbled mess. 
-#' Revert to creating a pdf once again before proceeding.  
+#' **Task 8** To see this, go back to the YAML header of this document and, 
+#' again, On line 7 change `html_document` to `word_document`, and on line
+#' 11 change `word_document` to `html_document`. After knitting, go back to 
+#' this table: it's just a jumbled mess. Do the same thing, now knitting
+#' to a pdf (knitting to a pdf will only work if you have a Tex distribution
+#' installed). The knitted pdf should have stripes; the html version will not.
 #' 
 #' The takeaway is this: although you *can* always knit your script to different
 #' formats, it will not always be formatted as expected. MS Word files are very 
-#' different from pdfs, which are very different from html files. 
+#' different from html, which are very different from pdf files. I find pdf
+#' files to be the most pleasing to look at and easiest to share with collaborators.
 
 #+ echo=T, cache = F
 
@@ -167,11 +172,11 @@ library(kableExtra);
 kable(datasaurus_summarized, 
       booktabs = T) %>%
   kable_styling(latex_options = c("striped"), 
-                stripe_color = "#BFBFBF") %>%
+                stripe_color = "#DFDFDF") %>%
   add_header_above(c(" " = 1, "Summary statistics" = 5));
 
 
-#' Visually, however, the datasets look much different:
+#' Visually, the datasets look much different:
 
 #+ echo = T, cache = F, fig.height = 9, fig.cap = "Same summary statistics, different plots. Roar!"
 

@@ -1,49 +1,121 @@
 ---
 title: 'BDSI R Markdown: Exercise 1'
 output:
-  pdf_document: default
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+<style type="text/css">
+  body{
+  font-size: 18pt;
+}
+  pre{
+  font-size: 18pt;
+}
+</style>
+
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) document. 
 
 ### Task 1
 
-Try executing the code "chunk" below, which adds the number 3 to itself, by clicking the *Run* button (the green triangle in the upper right of chunk) or by placing your cursor inside it and pressing *Cmd+Shift+Enter* (*Ctrl+Shift+Enter* on Windows) at the same time. The output should appear immediately below the chunk. 
+Try executing the code "chunk" below, which adds the number 3 to itself, by clicking the *Run* button (the green triangle in the upper right of chunk) or by placing your cursor inside it and pressing *Cmd+Shift+Enter* (*Ctrl+Shift+Enter* on Windows) at the same time. 
 
 ```{r}
-3+3;
+3+3
 ```
 
 ### Task 2
 
-To create a final, finished product of your work to share with your partner, children, parents, grocer, or labmates, click the *Knit* button or press *Cmd+Shift+K* (*Ctrl+Shift+K*) to create a PDF of your entire notebook. Note how, in the code chunk above, both the operation (`3+3`) and the answer (`6`) are printed as if they were run in an `R` console. 
+To create a final, finished product of your work to share with your partner, 
+children, parents, grocer, or labmates, click the *Knit* button or press 
+*Cmd+Shift+K* (*Ctrl+Shift+K*) to create a compiled version of your entire document. 
+The current setting will create an html document. Inspect the knitted 
+html file and observe that, in the code chunk above, both the operation (`3+3`) 
+and the answer (`6`) are printed as if they were run in an `R` console. 
 
 ### Task 3
 
-Now, add a new chunk below. To do so, put your cursor where you want it to go and click *Code* > *Insert Chunk* from the toolbar or  press *Cmd+Option+I* (*Ctrl+Alt+I*). Type in your favorite arithmetic operation and try running the chunk. 
+When you knit the document, some characters are interpreted as Markdown syntax.
+Based on comparing this raw document with the compiled html file, complete
+the following sentences to demonstrate your understanding of Markdown syntax.
+
+  (i) Characters that are surrounded by asterisks (*) will be ....
+  (ii) Characters that are surrounded by backticks (`) will look like ...
+  (iii) A line that starts with one or more pound signs will create a ...
+  (iv) Square-bracketed characters followed immediately by parenthetical expressions
+  are used to create ...
+
+Here's some perhaps non-intuitive behavior: change the '(iv)' in the
+list above to '(v)' and re-knit the document. Does anything change?
+
+In markdown, the ">" character indicates the use of a block quote, which will be set off 
+by indentation. You can include multiple paragraphs in a block quote by putting a ">"
+followed by a blank line and then another ">" on the next line, as in
+
+> Professor Zawistowski is a genius
+> 
+> But he is not very funny
 
 ### Task 4
 
-In the chunk you just added, change the `{r}` to `{r, echo = FALSE}` and re-knit the document. Then change to `{r, eval = FALSE}` and re-knit again. Hypothesize what these changes did. 
+Now, add a new chunk after this paragraph. To do so, put your cursor where you 
+want it to go and click *Code* > *Insert Chunk* from the toolbar or
+press *Cmd+Option+I* (*Ctrl+Alt+I*). Type in your favorite arithmetic operation 
+and try running the chunk. 
+
+In the chunk you just added, change the `{r}` to `{r, echo = FALSE}` and re-knit 
+the document. Then change to `{r, eval = FALSE}` and re-knit again. Write down
+below what you think each of these options does:
+
+  (i) `echo = FALSE` results in ...
+  (ii) `eval = FALSE` results in ...
+
 
 ### Task 5
 
-Knit the document and note how the paragraph immediately below gets knitted. 
+Knit the document and take note of how the paragraph immediately below gets 
+formatted. 
 
-Now remove the brackets ("{" and "}") from the following sentence: "The probability that 10 independent Bernoulli trials each with probability of success equal to 0.5 will yield at most 4 successes is `{r pbinom(q = 4, size = 10, prob = 0.5)}`" Re-knit the document and note how this paragraph has changed: there's a number there now. 
+Now remove the brackets ("`{`" and "`}`") from the following sentence: 
 
-This is an example of an *in-line* chunk; instead of making a stand-alone code chunk, you are running `R` directly in the text. 
+> The probability that 10 independent Bernoulli trials each with probability of success 
+equal to 0.5 will yield at most 4 successes is 
+`{r pbinom(q = 4, size = 10, prob = 0.5)}` 
+
+Re-knit the document and note how this paragraph has changed: in place of the formerly 
+bracketed expression, there's a number. 
+
+This is an example of an *in-line* chunk; instead of making a stand-alone code 
+chunk, you are running `R` directly in the text. Add an in-line chunk to the
+following sentence that evaluates the commonly used rational approximation to $\pi$
+
+> The fraction 22/7 evalutes to ...
 
 ### Task 6
 
-Cut and paste this chunk to line 7 at the top of your document. 
+Highlight + cut the chunk below and paste it to line 18 at the top of your document. 
 
 ```{r}
-options(digits = 3);
+options(digits = 3)
 ```
 
-How has the printed probability in task 5 been changed?
+How have the printed probabilities in task 5 been changed?
 
 ### Task 7
 
 Inspect the top of the `.Rmd` file. Find the 'Knit' dropdown menu at the top file, and choose the 'Knit to Word' option. Inspect the top of the `.Rmd` file again; what was added? 
+
+### When you are done
+
+Compiling to html files is a bit clunky, and Word documents don't always look the nicest. I usually knit to PDF, but this requires a few preparatory steps if you don't already have a Tex distribution on your computer. Go to the *R Markdown Cookbook*
+
+https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html
+
+and follow Yihui Xie's instructions for installing the `TinyTex` `R` package
+
+If you already have a Tex distribution, then browse the RMarkdown cheatsheet, which you can find here:
+
+https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf
