@@ -43,6 +43,13 @@ theme_set(theme_bw())
 image_scaler = 1#set to 0.6 for pdf_document, 1 for ioslides_presentation
 ```
 
+## About me
+
+- Associate Professor in Biostatistics
+- Erstwhile PhD student at Michigan Biostatistics
+- R user and aficionado
+
+
 ##
 
 <iframe src="https://player.vimeo.com/video/178485416" width="640px" height="400px"></iframe>
