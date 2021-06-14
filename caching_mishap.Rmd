@@ -6,11 +6,11 @@ output:
 ---
 
 ```{r, echo = TRUE, cache = TRUE}
-x <- rnorm(n = 1, mean = 0);
+x <- rnorm(n = 1, mean = 100)
 ```
 
 ```{r, echo = TRUE, cache = TRUE}
-x;
+x
 ```
 
 

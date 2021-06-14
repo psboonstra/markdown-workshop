@@ -27,14 +27,22 @@ Try executing the code "chunk" below, which adds the number 3 to itself, by clic
 3+3
 ```
 
+On line 7, change 'console' to 'inline'. Save the document *Cmd+S* or *Ctrl+S* 
+and then run the chunk again. Now in addition to running the command in the 
+console, the output also appears below. This is the default behavior when
+running code chunks, and I find it obnoxious, so I always set to 'console'. 
+
+
 ### Task 2
 
 To create a final, finished product of your work to share with your partner, 
 children, parents, grocer, or labmates, click the *Knit* button or press 
-*Cmd+Shift+K* (*Ctrl+Shift+K*) to create a compiled version of your entire document. 
-The current setting will create an html document. Inspect the knitted 
-html file and observe that, in the code chunk above, both the operation (`3+3`) 
-and the answer (`6`) are printed as if they were run in an `R` console. 
+*Cmd+Shift+K* (*Ctrl+Shift+K*) to create a compiled version of your entire 
+document that should automatically open in a separate window. 
+The current setting will create an html document that you can open in a 
+browser. Inspect the knitted html file and observe that, in the code chunk 
+above, both the operation (`3+3`) and the answer (`6`) are printed as if they 
+were run in an `R` console. 
 
 ### Task 3
 
@@ -116,6 +124,7 @@ https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html
 
 and follow Yihui Xie's instructions for installing the `TinyTex` `R` package
 
-If you already have a Tex distribution, then browse the RMarkdown cheatsheet, which you can find here:
+If you already have a Tex distribution, then browse the RMarkdown cheatsheet while
+you wait, which you can find here:
 
 https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf

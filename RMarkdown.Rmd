@@ -25,13 +25,14 @@ output:
 always_allow_html: yes
 editor_options: 
   chunk_output_type: console
+bibliography: references.bib  
 ---
 
 ```{r setup, include=FALSE}
 library(tidyverse); 
 library(knitr);
 library(countdown);
-knitr::opts_chunk$set(echo = F, warning = F, message = F, cache = F);
+knitr::opts_chunk$set(echo = T, warning = F, message = F, cache = F);
 knitr::knit_hooks$set(mysize = function(before, options, envir) {
   if (before) 
     return(options$size);
@@ -41,7 +42,6 @@ options(digits = 5);
 theme_set(theme_bw())
 image_scaler = 1;#set to 0.6 for pdf_document, 1 for ioslides_presentation
 ```
-
 
 ##
 
@@ -57,133 +57,161 @@ image_scaler = 1;#set to 0.6 for pdf_document, 1 for ioslides_presentation
 
 - Manuscripts / books
 
+- Simple websites
+
 ## Why to use
 
-- `R` code and interpretations integrated into a single document
+- R code and interpretations integrated into a single document
 
-- Separate tasks of *reporting* the results from *formatting* the results:
+- Separates task of *reporting* the results from *formatting* the results:
 
     * decreases risk of copy-paste errors
   
     * decreases workload
   
-- Quickly create the same document in different formats, e.g. slides to show and handouts for the audience
-
-- Create websites
+- Quickly create the same document in different formats, e.g. slides to show 
+and handouts for the audience
 
 ##
 
-```{r, out.width = paste0(image_scaler*850,"px")}
+```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
 knitr::include_graphics("images/markdown_flow.png");
 ```
 
 source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 
+
 ##
 
-```{r, out.width = paste0(image_scaler*850,"px")}
+```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
 knitr::include_graphics("images/markdown_flow6.png")
 ```
 
 whatever format you want to create: html, pdf, docx, ...
 
+image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
+
 ##
 
-```{r, out.width = paste0(image_scaler*850,"px")}
+```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
 knitr::include_graphics("images/markdown_flow5.png")
 ```
 
 `pandoc`: "an open-source document converter" ([wikipedia](https://en.wikipedia.org/wiki/Pandoc)). Translates markup from one type of format, e.g. markdown, to another
 
+image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
+
 ##
 
-```{r, out.width = paste0(image_scaler*850,"px")}
+```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
 knitr::include_graphics("images/markdown_flow4.png")
 ```
 
 `md`: a document written in markdown, "a lightweight markup language with plain text formatting syntax" ([wikipedia](https://en.wikipedia.org/wiki/Markdown)). Github also uses markdown. 
 
+image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
+
 ##
 
-```{r, out.width = paste0(image_scaler*850,"px")}
+```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
 knitr::include_graphics("images/markdown_flow3.png")
 ```
 
+`knitr`: an [R package](https://yihui.name/knitr/) for creating reports directly in R. Will translate your R markdown document (Rmd), including embedded R code, to a plain markdown document
 
-`knitr`: an [`R` package](https://yihui.name/knitr/) for creating reports directly in R. Will translate your R markdown document (`.Rmd`), including embedded `R` code, to a plain markdown document
+image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 
 ##
 
-```{r, out.width = paste0(image_scaler*850,"px")}
+```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
 knitr::include_graphics("images/markdown_flow2.png")
 ```
 
-`.Rmd`: file type recognized by Rstudio. This is where everything goes: your header, `R` code chunks, and your content written in markdown 
+Rmd: file type recognized by RStudio. This is where everything goes: your header, R code chunks, and your content written in markdown 
 
+image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 
 ##
 
 From RStudio, go to  `File` > `New File` > `R Markdown...`
 
-```{r, out.width = paste0(image_scaler*700,"px")}
+```{r, out.width = paste0(image_scaler*700,"px"), echo = F}
 knitr::include_graphics("images/new_rmarkdown0.png")
 ```
 
 ## Choose your document type
 
-```{r, out.width = paste0(image_scaler*700,"px")}
+```{r, out.width = paste0(image_scaler*700,"px"), echo = F}
 knitr::include_graphics("images/new_rmarkdown1.png")
 ```
 
 ## Get a template
 
-```{r, out.width = paste0(image_scaler*800,"px")}
+```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
 knitr::include_graphics("images/new_rmarkdown2.png")
 ```
 
 ## "YAML" Header
 
-```{r, out.width = paste0(image_scaler*800,"px")}
+```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
 knitr::include_graphics("images/new_rmarkdown3.png")
 ```
 
 
 ## Write R code in chunks
 
-```{r, out.width = paste0(image_scaler*800,"px")}
+```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
 knitr::include_graphics("images/new_rmarkdown4.png")
 ```
 
 
 ## Write plain text
 
-```{r, out.width = paste0(image_scaler*800,"px")}
+```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
 knitr::include_graphics("images/new_rmarkdown5.png")
 ```
 
 
 ## Knit your document to see the final product
 
-```{r, out.width = paste0(image_scaler*800,"px")}
+```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
 knitr::include_graphics("images/new_rmarkdown6.png")
 ```
 
+## Knit your document to see the final product
+
+```{r, out.width = paste0(image_scaler*700,"px"), echo = F}
+knitr::include_graphics("images/new_rmarkdown7.png")
+```
 
 
 ## 
 
-```{r, out.width = paste0(image_scaler*400,"px")}
+```{r, out.width = paste0(image_scaler*400,"px"), echo = F}
 knitr::include_graphics("images/knit_menu.png")
 ```
 
+## 
+
+This is what my code looks like for the previous slide:
+
+````markdown
+
+`r ''````{r, out.width = paste0(image_scaler*400,"px"), echo = F}
+knitr::include_graphics("images/knit_menu.png")
+```
+````
+
+
+````ignore me
 
 ## Try it out: Option 1
 
-  a. Download `R` (https://cran.r-project.org/)
-  b. Download `R`Studio to interface with `R` (https://www.rstudio.com/)
+  a. Download R (https://cran.r-project.org/)
+  b. Download RStudio to interface with R (https://www.rstudio.com/)
   c. Go to https://github.com/psboonstra/markdown-workshop, then 'Code', then 'Download ZIP'
   
-```{r, out.width = paste0(image_scaler*400,"px")}
+```{r, out.width = paste0(image_scaler*400,"px"), echo = F}
 knitr::include_graphics("images/git_download.png")
 ```
 
@@ -209,15 +237,17 @@ countdown(minutes = 8, seconds = 0)
 
 ## Takeaways
 
+- Markdown tries to focus on simplicity
 - Chunk options control how the chunk is evaluated and used
 - You can knit the same document to different formats (sometimes easy to do, sometimes requires a bit of finagling)
 - Consider using in-line chunks instead of hard-coding results
 
-## Use Markdown to tell your story
+# Use Markdown to tell your story
 
-If you name a variable in an earlier code chunk, you can use it again in a later chunk. 
 
 ## early code chunk
+
+If you name a variable in an earlier code chunk, you can use it again in a later chunk. 
 
 ```{r, echo = TRUE}
 x <- rnorm(20);
@@ -245,18 +275,6 @@ foo;
 kable(foo);
 ```
 
-
-## Other Markdown basics
-
-* Use #, ##, ###, etc to indicate deeper layers of a header
-
-* Use *, + for bulleted (unordered) lists
-
-* Use (i), (a), or 1. for ordered lists
-
-* Use \*{text}\* for *italics*, \*\*{text}\*\* for **bold**
-
-
 # Random lessons I've learned
 
 ## Markdown can be really, really finicky about horizontal and vertical spacing
@@ -271,13 +289,19 @@ If experimenting with a new feature, re-knit frequently
 If, like me, you become a compulsive re-knitter, the code chunk option 
 `cache = TRUE` is both useful and dangerous. 
 
-` ```{r, cache = TRUE} `
 
-` (some intensive task)`
+````markdown
 
-` ``` `
+`r ''````{r, cache = TRUE}
+# some intensive task
+```
+````
+
 
 As long as you don't change *anything* in the chunk, you won't need to re-run the intensive task upon re-knitting. However, things can go awry...
+
+````ignore me
+
 
 ## 
 
@@ -286,7 +310,7 @@ As long as you don't change *anything* in the chunk, you won't need to re-run th
 
 - Knit the document
 
-- Now edit your first chunk, changing to `x <- rnorm(n = 1, mean = 100)`
+- Now edit your first chunk, changing to `x <- rnorm(n = 1, mean = 0)`
 and leaving the second chunk alone
 
 - Re-knit your document
@@ -296,11 +320,11 @@ and leaving the second chunk alone
 That's how we get results like this:
 
 ```{r, echo = TRUE, cache = TRUE}
-x <- rnorm(n = 1, mean = 100);
+x <- rnorm(n = 1, mean = 0)
 ```
 
 ```{r, echo = FALSE, include = TRUE, cache = TRUE}
-x <- rnorm(n = 1, mean = 0);
+x <- rnorm(n = 1, mean = 100)
 ```
 
 ```{r, echo = TRUE, cache = TRUE}
@@ -311,17 +335,37 @@ x;
 
 ### What happened
 
-We triggered a recache of the first chunk without triggering a reache of the second
+We invalidated the cache in the first chunk (triggering it to run again) without
+invalidating the cache in the second chunk (so it was left alone)
 
 ### Possible solutions
 
-- Cache with caution and only cache costly chunks
+> The most appropriate use case of caching is to save and reload R objects 
+> that take too long to compute in a code chunk, and the code does not have 
+> any side effects, such as changing global R options via options() (such 
+> changes will not be cached). If a code chunk has side effects, we recommend 
+> that you do not cache it.
 
-- Think about when and where you want to split your chunk
+[Section 11.4, RMarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/cache.html)
 
-- For chunks that may be susceptible, trigger a re-cache by adding a comment character (`#`) at the end of a line, or making some other innocuous change to your chunk. Even extra white space will trigger a re-cache
+## 
 
-- Go to Knit > Clear Knitr Cache... or delete directly the folder ending in `[filename]_cache` in your working directory
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/RMarkdown?src=hash&amp;ref_src=twsrc%5Etfw">#RMarkdown</a> question: If I cache the chunk that loads the R packages, then I sometimes (not always) get random errors from downstream chunks that can&#39;t find a loaded function, as if it wasn&#39;t loaded. Un-cache-ing the chunk seems to fix the problem. Anyone else encounter this?</p>&mdash; Philip Boonstra (@psboonstra) <a href="https://twitter.com/psboonstra/status/1359145618854338567?ref_src=twsrc%5Etfw">February 9, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+##
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en" data-theme="dark"><p lang="en" dir="ltr">The cache mechanism is not to be used with code chunk that have side effect used by other chunks - loading package that are used by other chunk is one of this. See more in :<a href="https://t.co/bpKPzkFMad">https://t.co/bpKPzkFMad</a><br>If you activate cache globally you need to se cache=FALSE</p>&mdash; Christophe Dervieux (@chrisderv) <a href="https://twitter.com/chrisderv/status/1359516129560064001?ref_src=twsrc%5Etfw">February 10, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+## 
+
+- You can invalidate a cache by adding a comment character (`#`) at the end of 
+a line, or making some other innocuous change to your chunk. Even extra white 
+space will invalidate the cache
+
+- Go to `Knit` > `Clear Knitr Cache...` or delete directly the folder ending 
+in `[filename]_cache` in your working directory
+
+
 
 ## `knitr` can run code in other languages
 
@@ -343,11 +387,12 @@ You may need external language engines to successfully call other languages. I h
 
 see [Chapter 2.7, R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/language-engines.html)
 
+
 # More practice
 
-## You can knit `R` scripts!
+## You can knit R scripts!
 
-You are not limited to using Markdown in `Rmd` files -- you can knit `R` scripts 
+You are not limited to using Markdown in Rmd files -- you can knit R scripts 
 using the same shortcut: *Cmd+Shift+K* / *Ctrl+Shift+K*
 
   - Use `#'` to indicate a switch to markdown 
@@ -366,13 +411,13 @@ Open `02-exercise.R` and complete the tasks. Indicate when you are done.
 countdown(minutes = 8, seconds = 0)
 ``` 
 
-# Data analyses in `R`
+# Data analyses in R
 
 ## `readr` package
 
 Part of the `tidyverse` (along with `dplyr` and `ggplot2`):
 
-```{r, out.width = paste0(image_scaler*500,"px")}
+```{r, out.width = paste0(image_scaler*500,"px"), echo = F}
 knitr::include_graphics("images/tidyverse.png")
 ```
 
@@ -380,15 +425,15 @@ https://www.tidyverse.org/
 
 ## 
 
-`readr` gives you tools to read in data from files outside `R`, wrangled and manipulated, and then written to files outside `R`:
+`readr` gives you tools to read in data from files outside R, wrangled and manipulated, and then written to files outside R:
 
-```{r, out.width = paste0(image_scaler*1e3,"px")}
+```{r, out.width = paste0(image_scaler*1e3,"px"), echo = F}
 knitr::include_graphics("images/readr_context.png")
 ```
 
 ##
 
-The workhorse of the `readr` package is `read_csv`, which reads a comma-separated value (`csv`) file into `R` as a `data.frame` 
+The workhorse of the `readr` package is `read_csv`, which reads a comma-separated value (`csv`) file into R as a `data.frame` 
 From the help page:
 
 ```
@@ -408,8 +453,7 @@ Typical use is `my_data <- read_csv("my_files_path.csv")`
   - Available at American Statistical Association’s Section on Teaching of Statistics in the Health Sciences (TSHS) [data portal](https://www.causeweb.org/tshs/tumor-growth/)
   - File is called `tumor_growth.csv`
 
-
-Varna M, Bertheau P, Legres LG. Tumor Microenvironment in Human Tumor Xenografted Mouse Models. Journal of Analytical Oncology 2014; 3(3): 159-166.
+@varna2014tumor
 
 ## 
 
@@ -466,9 +510,11 @@ tumor_growth %>%
 
 ##
 
+[R Markdown on RStudio.com](https://rmarkdown.rstudio.com/index.html)
+
 [R Markdown: The definitive guide](https://bookdown.org/yihui/rmarkdown/)
 
-  - Free, online version of a book written by the `R`studio experts
+  - Free, online version of a book written by the RStudio experts
 
 [R Markdown cheatsheet](https://www.rstudio.com/resources/cheatsheets/#rmarkdown)
 

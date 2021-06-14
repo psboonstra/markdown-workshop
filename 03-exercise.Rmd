@@ -5,12 +5,15 @@ output:
     df_print: paged
 editor_options:
   chunk_output_type: console
+bibliography: references.bib
 ---
 
 
 ## Instructions
 
-In these exercises you will explore the xenograft data. Create code chunks to do the necessary calculations and save your results. Write English prose to answer the questions.
+In these exercises you will explore the xenograft data with a group. Create 
+code chunks to do the necessary calculations and save your results. Write 
+English prose to answer the questions.
 
 ## Read in the data
 
@@ -18,7 +21,7 @@ Create an object called `tumor_growth` object by reading in the data using
 `read_csv`. 
 
 Look over the code chunk below and confer with your group about what you think 
-the code is doing. Be sure to look up any unfamiliar functions. 
+the code is doing. Feel free to look up any unfamiliar functions. 
 
 ## Calculate relative size
 
@@ -35,12 +38,16 @@ tumor_growth <-
 
 ## Calculate summary statistics
 
-Separately for each treatment group, create code chunks to calculate for each of days 0, 7, and 14 the following statistics: the mean tumor size, the mean
-*relative* tumor size, and the number of measurements. Report these statistics. Which group had the largest typical growth between day 0 and days 7 / 14? Which group had the most measurements taken on day 14? Why do you think the mice have different
-numbers of measurements taken on these days?
+Separately for each treatment group, create code chunks to calculate for each 
+of days 0, 7, and 14 the following statistics: the mean tumor size, the mean 
+*relative* tumor size as defined in the chunk above, and the number of 
+measurements. Report these statistics. Which group had the largest typical 
+growth between day 0 and days 7 / 14? Which group had the most measurements 
+taken on day 14? Why do you think the mice have different numbers of measurements 
+taken on these days?
 
 
-*Hint* You might find useful the `n()` function useful. It counts the current group 
+*Hint* You might find the `n()` function to be useful. It counts the current group 
 size (but it only works inside of `summarize` or `mutate`). Check the help page
 if needed.
 
@@ -63,5 +70,15 @@ Try to come up with some ways to make the plot fancier. Some suggestions:
   (iii) Try to layer on to your plot some group-level summary statistics. You 
   may be able to do so with a call to `geom_point`.
   
-## Knit everything together
+## Add references
+
+You can create bibliographies in your markdown document. Because I use LaTeX
+frequently, I use .bib files to construct mine. I've created one for you and 
+dropped it directly in the project folder. Then you can write in-line 
+citations as follows:
+
+> The data come from @varna2014tumor
+
+Now knit your document to view your final product!
+
 
