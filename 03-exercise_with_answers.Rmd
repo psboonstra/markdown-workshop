@@ -1,0 +1,180 @@
+---
+title: 'BDSI R Markdown: Exercise 3'
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
+bibliography: references.bib
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+## Instructions
+
+In these exercises you will explore the xenograft data with a group. Create 
+code chunks to do the necessary calculations and save your results. Write 
+English prose to answer the questions.
+
+## Read in the data
+
+Create an object called `tumor_growth` object by reading in the data using 
+`read_csv`. 
+
+```{r}
+tumor_growth <- read_csv("tumor_growth.csv")
+```
+
+Look over the code chunk below and confer with your group about what you think 
+the code is doing. Feel free to look up any unfamiliar functions. 
+
+## Calculate relative size
+
+```{r}
+tumor_growth <- 
+  tumor_growth %>% 
+  group_by(ID) %>% 
+  arrange(Day) %>% 
+  mutate(Size_Day0 = first(Size),
+         relative_Size = log(Size / Size_Day0)) %>% 
+  ungroup() %>% 
+  arrange(ID)
+```
+
+## Calculate summary statistics
+
+Separately for each treatment group, create code chunks to calculate for each 
+of days 0, 7, and 14 the following statistics: the mean tumor size, the mean 
+*relative* tumor size as defined in the chunk above, and the number of 
+measurements. 
+
+```{r}
+tumor_growth_summarized <- 
+  tumor_growth %>%
+  filter(Day %in% c(0, 7, 14)) %>%
+  group_by(Grp, Day) %>%
+  summarize(mean_size = mean(Size), 
+            mean_relative_size = mean(relative_Size), 
+            number_measurements = n())
+```
+
+Report these statistics. Which group had the largest typical 
+growth between day 0 and days 7 / 14? Which group had the most measurements 
+taken on day 14? Why do you think the mice have different numbers of measurements 
+taken on these days?
+
+*The control group had the largest typical growth, with average relative growth values of 1.69 and 3.06 at days 7 and 14, respectively*
+
+*The the drug-alone and radiation-alone treatment groups had the most measurements at day 14 (nine measurements) This is probably due to mice in the control group having been sacrificed earlier.*
+
+**You could also use inline code chunks here. For example, I could write the first sentence above as:**
+
+```{r, include = F}
+# I use the glue_collapse function
+library(glue);
+```
+
+
+*The control group had the largest typical growth, with average relative growth values of `r tumor_growth_summarized %>% filter(Day %in% c(7,14), Grp == "1.CTR") %>% pull(mean_relative_size) %>% round(2) %>% glue_collapse(sep = " and ")` at days 7 and 14, respectively*
+
+
+*Hint* You might find the `n()` function to be useful. It counts the current group 
+size (but it only works inside of `summarize` or `mutate`). Check the help page
+if needed.
+
+## Plots
+
+Next, use `ggplot` to create a 'spaghetti plot' of the tumor growth data that
+plots tumor size against day of the measurement. Each mouse should have its own
+line (the spaghetti strand), and the strand should be colored by the treatment
+group it is in. You will want to use `geom_line` and use `group = ID` as an
+aesthetic to tell the geom that the values from the same ID should be connected
+by the line. 
+
+Create two spaghetti plots: one with `Size` variable on the $y$-axis and one with `relative_Size` variable on the $y$-axis. 
+
+
+```{r}
+ggplot(tumor_growth, 
+       mapping = aes(x = Day, y = Size, color = Grp)) + 
+  geom_line(aes(group = ID),
+            # set alpha to < 1 so that individual mice are down-emphasized
+            alpha = 0.25) + 
+  # plot summary statistics with a thick line 
+  # the aesthetics will be inherited from the ggplot
+  geom_line(data = tumor_growth %>% group_by(Grp, Day) %>% summarize(Size = mean(Size)), 
+            size = 1.25) + 
+  labs(x = "Day of measurement", y = "Tumor size") + 
+  # limit the viewing to the first 18 days, where we have more measurements per group
+  coord_cartesian(xlim = c(0, 18)) + 
+  theme(text = element_text(size = 16)) 
+```
+
+
+```{r}
+ggplot(tumor_growth, 
+       mapping = aes(x = Day, y = relative_Size, color = Grp)) + 
+  geom_line(aes(group = ID),
+            # set alpha to < 1 so that individual mice are down-emphasized
+            alpha = 0.25) + 
+  # plot summary statistics with a thick line 
+  # the aesthetics will be inherited from the ggplot
+  geom_line(data = tumor_growth %>% group_by(Grp, Day) %>% summarize(relative_Size = mean(relative_Size)), 
+            size = 1.25) + 
+  labs(x = "Day of measurement", y = "Relative tumor size") + 
+  # limit the viewing to the first 18 days, where we have more measurements per group
+  coord_cartesian(xlim = c(0, 18)) + 
+  theme(text = element_text(size = 16)) 
+```
+
+Using some more advanced programming, I can also make a function that will
+generate either plot:
+
+```{r}
+tumor_spaghetti <- 
+  function(size_var, y_axis_name) {
+    ggplot(tumor_growth, 
+           mapping = aes(x = Day, y = !!sym(size_var), color = Grp)) + 
+      geom_line(aes(group = ID),
+                # set alpha to < 1 so that individual mice are down-emphasized
+                alpha = 0.25) + 
+      # plot summary statistics with a thick line 
+      # the aesthetics will be inherited from the ggplot
+      geom_line(data = tumor_growth %>% group_by(Grp, Day) %>% summarize(!!size_var := mean(!!sym(size_var))), 
+                size = 1.25) + 
+      labs(x = "Day of measurement", y = y_axis_name) + 
+      # limit the viewing to the first 18 days, where we have more measurements per group
+      coord_cartesian(xlim = c(0, 18)) + 
+      theme(text = element_text(size = 16)) 
+  }
+# Equivalent to the first plot
+tumor_spaghetti("Size", "Tumor Size")
+# Equivalent to the second plot
+tumor_spaghetti("relative_Size", "Relative Tumor Size")
+```
+
+
+
+Try to come up with some ways to make the plot fancier. Some suggestions:
+
+(i) Make more informative axis labels using the `labs` or the `scale_x_continuous`/
+`scale_y_continuous` functions. 
+(ii) Increase the font size using the `theme` function
+(iii) Try to layer on to your plot some group-level summary statistics. You 
+may be able to do so with a call to `geom_point`.
+
+## Add references
+
+You can create bibliographies in your markdown document. Because I use LaTeX
+frequently, I use .bib files to construct mine. I've created one for you and 
+dropped it directly in the project folder. Then you can write in-line 
+citations as follows:
+
+> The data come from @varna2014tumor
+
+Now knit your document to view your final product!
+
+
