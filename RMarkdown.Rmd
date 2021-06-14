@@ -29,18 +29,18 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-library(tidyverse); 
-library(knitr);
-library(countdown);
-knitr::opts_chunk$set(echo = T, warning = F, message = F, cache = F);
+library(tidyverse) 
+library(knitr)
+library(countdown)
+knitr::opts_chunk$set(echo = T, warning = F, message = F, cache = F)
 knitr::knit_hooks$set(mysize = function(before, options, envir) {
   if (before) 
-    return(options$size);
+    return(options$size)
 })
 
-options(digits = 5);
+options(digits = 5)
 theme_set(theme_bw())
-image_scaler = 1;#set to 0.6 for pdf_document, 1 for ioslides_presentation
+image_scaler = 1#set to 0.6 for pdf_document, 1 for ioslides_presentation
 ```
 
 ##
@@ -75,7 +75,7 @@ and handouts for the audience
 ##
 
 ```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
-knitr::include_graphics("images/markdown_flow.png");
+include_graphics("images/markdown_flow.png")
 ```
 
 source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
@@ -84,7 +84,7 @@ source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 ##
 
 ```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
-knitr::include_graphics("images/markdown_flow6.png")
+include_graphics("images/markdown_flow6.png")
 ```
 
 whatever format you want to create: html, pdf, docx, ...
@@ -94,7 +94,7 @@ image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 ##
 
 ```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
-knitr::include_graphics("images/markdown_flow5.png")
+include_graphics("images/markdown_flow5.png")
 ```
 
 `pandoc`: "an open-source document converter" ([wikipedia](https://en.wikipedia.org/wiki/Pandoc)). Translates markup from one type of format, e.g. markdown, to another
@@ -104,7 +104,7 @@ image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 ##
 
 ```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
-knitr::include_graphics("images/markdown_flow4.png")
+include_graphics("images/markdown_flow4.png")
 ```
 
 `md`: a document written in markdown, "a lightweight markup language with plain text formatting syntax" ([wikipedia](https://en.wikipedia.org/wiki/Markdown)). Github also uses markdown. 
@@ -114,7 +114,7 @@ image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 ##
 
 ```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
-knitr::include_graphics("images/markdown_flow3.png")
+include_graphics("images/markdown_flow3.png")
 ```
 
 `knitr`: an [R package](https://yihui.name/knitr/) for creating reports directly in R. Will translate your R markdown document (Rmd), including embedded R code, to a plain markdown document
@@ -124,7 +124,7 @@ image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 ##
 
 ```{r, out.width = paste0(image_scaler*850,"px"), echo = F}
-knitr::include_graphics("images/markdown_flow2.png")
+include_graphics("images/markdown_flow2.png")
 ```
 
 Rmd: file type recognized by RStudio. This is where everything goes: your header, R code chunks, and your content written in markdown 
@@ -136,59 +136,59 @@ image source: [rstudio.com](https://rmarkdown.rstudio.com/lesson-2.html)
 From RStudio, go to  `File` > `New File` > `R Markdown...`
 
 ```{r, out.width = paste0(image_scaler*700,"px"), echo = F}
-knitr::include_graphics("images/new_rmarkdown0.png")
+include_graphics("images/new_rmarkdown0.png")
 ```
 
 ## Choose your document type
 
 ```{r, out.width = paste0(image_scaler*700,"px"), echo = F}
-knitr::include_graphics("images/new_rmarkdown1.png")
+include_graphics("images/new_rmarkdown1.png")
 ```
 
 ## Get a template
 
 ```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
-knitr::include_graphics("images/new_rmarkdown2.png")
+include_graphics("images/new_rmarkdown2.png")
 ```
 
 ## "YAML" Header
 
 ```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
-knitr::include_graphics("images/new_rmarkdown3.png")
+include_graphics("images/new_rmarkdown3.png")
 ```
 
 
 ## Write R code in chunks
 
 ```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
-knitr::include_graphics("images/new_rmarkdown4.png")
+include_graphics("images/new_rmarkdown4.png")
 ```
 
 
 ## Write plain text
 
 ```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
-knitr::include_graphics("images/new_rmarkdown5.png")
+include_graphics("images/new_rmarkdown5.png")
 ```
 
 
 ## Knit your document to see the final product
 
 ```{r, out.width = paste0(image_scaler*800,"px"), echo = F}
-knitr::include_graphics("images/new_rmarkdown6.png")
+include_graphics("images/new_rmarkdown6.png")
 ```
 
 ## Knit your document to see the final product
 
 ```{r, out.width = paste0(image_scaler*700,"px"), echo = F}
-knitr::include_graphics("images/new_rmarkdown7.png")
+include_graphics("images/new_rmarkdown7.png")
 ```
 
 
 ## 
 
 ```{r, out.width = paste0(image_scaler*400,"px"), echo = F}
-knitr::include_graphics("images/knit_menu.png")
+include_graphics("images/knit_menu.png")
 ```
 
 ## 
@@ -198,7 +198,7 @@ This is what my code chunk looks like for the previous slide:
 ````markdown
 
 `r ''````{r, out.width = paste0(image_scaler*400,"px"), echo = F}
-knitr::include_graphics("images/knit_menu.png")
+include_graphics("images/knit_menu.png")
 ```
 ````
 
@@ -212,10 +212,10 @@ knitr::include_graphics("images/knit_menu.png")
   c. Go to https://github.com/psboonstra/markdown-workshop, then 'Code', then 'Download ZIP'
   
 ```{r, out.width = paste0(image_scaler*400,"px"), echo = F}
-knitr::include_graphics("images/git_download.png")
+include_graphics("images/git_download.png")
 ```
 
-  d. Unzip the folder, then open the .RProj file
+  d. Unzip the folder, then open the `.RProj` file
   e. In RStudio, click on 'Files' at the bottom, and pull up `01-exercise.Rmd`
   
   
@@ -228,7 +228,10 @@ knitr::include_graphics("images/git_download.png")
   
 ## Your turn
 
-<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/44rtjItY4NgC2bOK0DpOq?controls=presentation&amp;force=--+none+--&amp;push=manual" width="40%" height="15%" frameBorder="0"></iframe> 
+Complete the tasks in `01-exercise.Rmd`. Answer the following question when you 
+are done
+
+<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/CxGiXDjOcIBduE9tbwmVO?controls=presentation&amp;force=--+none+--&amp;push=manual" width="40%" height="15%" frameBorder="0"></iframe> 
 
 
 ```{r, cache = FALSE, echo = FALSE}
@@ -245,34 +248,34 @@ countdown(minutes = 8, seconds = 0)
 # Use Markdown to tell your story
 
 
-## early code chunk
+## Early code chunk
 
-If you name a variable in an earlier code chunk, you can use it again in a later chunk. 
+If you name a variable in an earlier code chunk, you can refer to it again in a later chunk. 
 
 ```{r, echo = TRUE}
-x <- rnorm(20);
-y <- 3 * x + rnorm(length(x));
-foo = tibble(x = x, y = y);
+x <- rnorm(20)
+y <- 3 * x + rnorm(length(x))
+foo = tibble(x = x, y = y)
 ```
 
-## later code chunk
+## Later code chunk
 
 ```{r, echo = TRUE, fig.height = 4, fig.width = 4}
 library(ggplot2)
 ggplot(data = foo) + 
-  geom_point(aes(x, y));
+  geom_point(aes(x, y))
 ```
 
 ## Tables
 
 ```{r, echo = TRUE}
-foo;
+foo
 ```
 
 ## Tables using 'kable'
 
 ```{r}
-kable(foo);
+kable(foo)
 ```
 
 # Random lessons I've learned
@@ -328,7 +331,7 @@ x <- rnorm(n = 1, mean = 100)
 ```
 
 ```{r, echo = TRUE, cache = TRUE}
-x;
+x
 ```
 
 ## 
@@ -407,9 +410,10 @@ using the same shortcut: *Cmd+Shift+K* / *Ctrl+Shift+K*
 
 ## Your turn again
 
-Open `02-exercise.R` and complete the tasks. Indicate when you are done. 
+Open `02-exercise.R` and complete the tasks. Answer the following question
+when you are done
 
-<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/HmPk5eNECOaBmj7drngrh?controls=presentation&amp;force=--+none+--&amp;push=manual" width="40%" height="15%" frameBorder="0"></iframe> 
+<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/mn5LYOGSd1Ivrh84IfLTW?controls=presentation&amp;force=--+none+--&amp;push=manual" width="40%" height="15%" frameBorder="0"></iframe> 
 
 
 ```{r, cache = FALSE, echo = FALSE}
@@ -423,7 +427,7 @@ countdown(minutes = 8, seconds = 0)
 Part of the `tidyverse` (along with `dplyr` and `ggplot2`):
 
 ```{r, out.width = paste0(image_scaler*500,"px"), echo = F}
-knitr::include_graphics("images/tidyverse.png")
+include_graphics("images/tidyverse.png")
 ```
 
 https://www.tidyverse.org/
@@ -433,7 +437,7 @@ https://www.tidyverse.org/
 `readr` gives you tools to read in data from files outside R, wrangled and manipulated, and then written to files outside R:
 
 ```{r, out.width = paste0(image_scaler*1e3,"px"), echo = F}
-knitr::include_graphics("images/readr_context.png")
+include_graphics("images/readr_context.png")
 ```
 
 ##
@@ -449,6 +453,42 @@ skip_empty_rows = TRUE)
 ```
 
 Typical use is `my_data <- read_csv("my_files_path.csv")`
+
+## Digression: How does `read_csv` know where to look?
+
+Get your current working directory in R:
+
+```{r}
+getwd()
+```
+
+How did R know this was my desired working directory? Why didn't I need to do this?
+
+```{r, eval = FALSE}
+setwd("/Users/philb/Desktop/Work/BDSI2021/markdown-workshop")
+```
+
+
+## R Projects and working directories
+
+Your working directory is automatically set when you work inside an R project.
+
+```{r, out.width = paste0(image_scaler*500,"px"), echo = F}
+include_graphics("images/Rprojects.png")
+```
+
+##
+
+###
+
+To *create* an R project, go to `File` > `New Project...` > `Existing Directory`
+and choose your folder
+
+### 
+
+To *open* an existing R project, find the `.Rproj` file or go to `File` > 
+`Open Project...`
+
 
 ## Mouse xenograft study
 
@@ -488,7 +528,7 @@ tumor_growth %>%
             sd_Size = sd(Size))
 ```
 
-<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/OlS2sh07hAa5a9MNQfalE?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
+<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/vBCEpR1NY7uFIClIX5lux?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
 
 
 ## Digression: testing your `dplyr` knowledge
@@ -499,10 +539,24 @@ tumor_growth %>%
   group_by(ID) %>% 
   summarize(n = n()) %>% 
   summarize(n = mean(n)) %>% 
-  pull(n) # pull
+  pull(n) # pull extracts the named column as a vector
 ```
 
 <iframe src="https://embed.polleverywhere.com/multiple_choice_polls/lHzckr7Figsg47EdJjoOO?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
+
+
+## One more time
+
+Open `03-exercise.Rmd` and complete the tasks. Work with your breakout room partners. 
+Answer the following question if desired
+
+
+<iframe src="https://embed.polleverywhere.com/free_text_polls/itx18mT2LCePHk8nuZAPQ?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
+
+
+```{r, cache = FALSE, echo = FALSE}
+countdown(minutes = 15, seconds = 0)
+``` 
 
 
 ##  What to do next
@@ -521,13 +575,17 @@ tumor_growth %>%
 
   - Free, online version of a book written by the RStudio experts
 
-[R Markdown cheatsheet](https://www.rstudio.com/resources/cheatsheets/#rmarkdown)
+[R Markdown cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf)
 
   - Helpful quick reference
 
 [Mastering markdown](https://guides.github.com/features/mastering-markdown/)
 
-  - Reference site for markdown 
+  - Reference site for markdown langauge 
+  
+[Project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)
+
+  - The benefits of working in self-contained projects
   
 ## References
 

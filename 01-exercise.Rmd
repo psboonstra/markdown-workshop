@@ -21,7 +21,10 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) document.
 
 ### Task 1
 
-Try executing the code "chunk" below, which adds the number 3 to itself, by clicking the *Run* button (the green triangle in the upper right of chunk) or by placing your cursor inside it and pressing *Cmd+Shift+Enter* (*Ctrl+Shift+Enter* on Windows) at the same time. 
+Try executing the code "chunk" below, which adds the number 3 to itself, by 
+clicking the *Run* button (the green triangle in the upper right of chunk) or 
+by placing your cursor inside it and pressing *Cmd+Shift+Enter* 
+(*Ctrl+Shift+Enter* on Windows) at the same time. 
 
 ```{r}
 3+3
@@ -61,11 +64,15 @@ list above to '(v)' and re-knit the document. Does anything change?
 
 In markdown, the ">" character indicates the use of a block quote, which will be set off 
 by indentation. You can include multiple paragraphs in a block quote by putting a ">"
-followed by a blank line and then another ">" on the next line, as in
+followed by a blank line and then another ">" on the next line, like this Haiku
 
-> Professor Zawistowski is a genius
+> He is a genius:
 > 
-> But he is not very funny
+> Professor Zawistowski
+> 
+> But he's not funny
+> 
+> *Phil Boonstra*
 
 ### Task 4
 
@@ -114,17 +121,22 @@ How have the printed probabilities in task 5 been changed?
 
 ### Task 7
 
-Inspect the top of the `.Rmd` file. Find the 'Knit' dropdown menu at the top file, and choose the 'Knit to Word' option. Inspect the top of the `.Rmd` file again; what was added? 
+Inspect the top of the `.Rmd` file. Find the 'Knit' dropdown menu at the top 
+file and choose the 'Knit to Word' option. Inspect the top of the `.Rmd` file 
+again; what was added? 
 
 ### When you are done
 
-Compiling to html files is a bit clunky, and Word documents don't always look the nicest. I usually knit to PDF, but this requires a few preparatory steps if you don't already have a Tex distribution on your computer. Go to the *R Markdown Cookbook*
+Compiling to html files is a bit clunky, and Word documents don't always look 
+the nicest. I usually knit to PDF, but this requires a few preparatory steps if 
+you don't already have a Tex distribution on your computer. Go to the 
+*R Markdown Cookbook*
 
 https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html
 
 and follow Yihui Xie's instructions for installing the `TinyTex` `R` package
 
-If you already have a Tex distribution, then browse the RMarkdown cheatsheet while
-you wait, which you can find here:
+If you already have a Tex distribution, then browse the RMarkdown cheatsheet 
+while you wait, which you can find here:
 
 https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf
