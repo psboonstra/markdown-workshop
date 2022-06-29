@@ -1,6 +1,6 @@
-## 2021 BDSI R Markdown lecture
+## 2022 BDSI R Markdown lecture
 
 This repository contains resources for Phil Boonstra's lecture on using R markdown
 via the R package `knitr`. You can access the slides here:
 
-http://www.umich.edu/~philb/BDSI2021/RMarkdown.html
+http://www.umich.edu/~philb/BDSI2022/RMarkdown.html
