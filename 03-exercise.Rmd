@@ -11,17 +11,17 @@ bibliography: references.bib
 
 ## Instructions
 
-In these exercises you will explore the xenograft data with a group. Create 
-code chunks to do the necessary calculations and save your results. Write 
-English prose to answer the questions.
+In these exercises you will explore the xenograft data. Create code chunks to do 
+the necessary calculations and save your results. Write English prose to answer 
+the questions.
 
 ## Read in the data
 
-Create an object called `tumor_growth` object by reading in the data using 
-`read_csv`. 
+Make a new chunk below this sentence and inside it create an object called `tumor_growth` object by reading in the data using `read_csv`.
 
 Look over the code chunk below and confer with your group about what you think 
-the code is doing. Feel free to look up any unfamiliar functions. 
+the code is doing. Feel free to look up any unfamiliar functions. Then run the 
+chunk (make sure you've run the chunk that you wrote above first). 
 
 ## Calculate relative size
 

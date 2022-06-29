@@ -24,19 +24,14 @@
 #'}
 #'</style>
   
-  
 
 #+ echo=F, cache = F, include = F
 
-# Here we create a chunk to set up some background parameters
-
 options(digits = 4); 
-
-library(tidyverse);
-library(knitr);
+if(!require(tidyverse, quietly = TRUE)) {install.packages("tidyverse",repos = "http://cran.us.r-project.org");library(tidyverse)}
+if(!require(knitr, quietly = TRUE)) {install.packages("knitr",repos = "http://cran.us.r-project.org");library(knitr)}
 
 #+ echo=F, cache = F
-
 
 #' # Main header
 #' 
@@ -89,14 +84,16 @@ library(knitr);
 
 #+ echo = F, cache = F
 
-# this code is run but printed because we set echo = F above. Thus, neither will
-# this comment be printed
+# We can also write regular R comments. Note that the beginning of these lines
+# start with a regular pound sign / hashtag. Code inside this chunk is run but 
+# not printed because we set echo = F above. Thus, neither will
+# these comments be printed. Inspect the knitted document to see for yourself. 
 
 x = rnorm(100, mean = -2, sd = 0.5);
 y = 3 * x + rnorm(length(x));
 
 #' 
-#' ## Some data analyis
+#' ## Some data analysis
 #' 
 #' I'm using an in-line chunk to report that the observed mean of `x` is `r mean(x)`
 #' **Task 7** Add another in-line chunk to report the observed standard deviation
@@ -106,12 +103,9 @@ y = 3 * x + rnorm(length(x));
 
 #+ echo=T, cache = F
 
-# Here is a regular R comment: it will be printed to the final knitted document 
-# if echo = T. You need to run this chunk to install this package once:
+if(!require(datasauRus, quietly = TRUE)) {install.packages("datasauRus",repos = "http://cran.us.r-project.org");library(datasauRus)}
 
-if(!require(datasauRus)) install.packages("datasauRus",repos = "http://cran.us.r-project.org");
-
-#You need to run this chunk to load this package anytime you open R:
+# If the package is installed and you just want to load it, you can also use this code:
 
 library(datasauRus);
 
@@ -166,8 +160,7 @@ kable(datasaurus_summarized);
 
 #+ echo=T, cache = F
 
-if(!require(kableExtra)) install.packages("kableExtra",repos = "http://cran.us.r-project.org");
-library(kableExtra);
+if(!require(kableExtra, quietly = TRUE)) {install.packages("kableExtra",repos = "http://cran.us.r-project.org");library(kableExtra);}
 
 kable(datasaurus_summarized, 
       booktabs = T) %>%

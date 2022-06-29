@@ -91,14 +91,11 @@ below what you think each of these options does:
 
 ### Task 5
 
-Knit the document and take note of how the paragraph immediately below gets 
-formatted. 
-
-Now remove the brackets ("`{`" and "`}`") from the following sentence: 
+Knit the document and take note of how the sentence below ("The probability that"...)
+gets formatted. Now remove the brackets ("`{`" and "`}`") from this sentence:
 
 > The probability that 10 independent Bernoulli trials each with probability of success 
-equal to 0.5 will yield at most 4 successes is 
-`{r pbinom(q = 4, size = 10, prob = 0.5)}` 
+equal to 0.5 will yield at most 4 successes is `{r pbinom(q = 4, size = 10, prob = 0.5)}` 
 
 Re-knit the document and note how this paragraph has changed: in place of the formerly 
 bracketed expression, there's a number. 
@@ -111,7 +108,8 @@ following sentence that evaluates the commonly used rational approximation to $\
 
 ### Task 6
 
-Highlight + cut the chunk below and paste it to line 18 at the top of your document. 
+Highlight + cut the three lines in the chunk below (starting with the triple backticks 
+and ending with the triple backticks) and paste it to line 18 at the top of your document. 
 
 ```{r}
 options(digits = 3)

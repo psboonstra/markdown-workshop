@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R Markdown"
 author: "https://github.com/psboonstra/markdown-workshop"
-date: "BDSI 2021; University of Michigan"
+date: "BDSI 2022; University of Michigan"
 geometry: margin=0.5in
 output: 
   ioslides_presentation:
@@ -194,7 +194,7 @@ include_graphics("images/new_rmarkdown7.png")
 
 ## 
 
-```{r, out.width = paste0(image_scaler*400,"px"), echo = F}
+```{r, out.width = paste0(image_scaler*900,"px"), echo = F}
 include_graphics("images/knit_menu.png")
 ```
 
@@ -202,15 +202,11 @@ include_graphics("images/knit_menu.png")
 
 This is what my code chunk looks like for the previous slide:
 
-````markdown
-
-`r ''````{r, out.width = paste0(image_scaler*400,"px"), echo = F}
+````r
+```{r, out.width = paste0(image_scaler*400,"px"), echo = F}`r ''`
 include_graphics("images/knit_menu.png")
 ```
 ````
-
-
-````ignore this
 
 ## Try it out: Option 1
 
@@ -302,16 +298,12 @@ If, like me, you become a compulsive re-knitter, the code chunk option
 
 ````markdown
 
-`r ''````{r, cache = TRUE}
+```{r, cache = TRUE}`r ''`
 # some intensive task
 ```
 ````
 
-
 As long as you don't change *anything* in the chunk, you won't need to re-run the intensive task upon re-knitting. However, things can go awry...
-
-````ignore this
-
 
 ## 
 
@@ -380,8 +372,6 @@ in `[filename]_cache` in your working directory
 
 
 
-
-
 ## `knitr` can run code in other languages
 
 Including 
@@ -427,6 +417,17 @@ when you are done
 countdown(minutes = 8, seconds = 0)
 ``` 
 
+## Embedding html tags into your markdown
+
+````
+<iframe src="https://isitchristmas.com/"></iframe> 
+````
+
+yields
+
+<iframe src="https://isitchristmas.com/"></iframe> 
+
+
 # Data analyses in R
 
 ## `readr` package
@@ -469,7 +470,7 @@ Get your current working directory in R:
 getwd()
 ```
 
-How did R know this was my desired working directory? Why didn't I need to do this?
+How did R know this was my desired working directory? Why did I not need to do this:
 
 ```{r, eval = FALSE}
 setwd("/Users/philb/Desktop/Work/BDSI2021/markdown-workshop")
@@ -513,50 +514,9 @@ To *open* an existing R project, find the `.Rproj` file or go to `File` >
 (tumor_growth <- read_csv("tumor_growth.csv"))
 ```
 
-## Digression: testing your `dplyr` knowledge
-
-```{r, echo = T, eval = F}
-tumor_growth %>% 
-  filter(Day %in% c(0, 14)) %>%
-  group_by(Grp, Day) %>%
-  summarize(mean_Size = mean(Size))
-```
-
-<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/44zAaR3X8gQIlQ6M1D0hC?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
-
-
-## Digression: testing your `dplyr` knowledge
-
-```{r, echo = T, eval = F}
-tumor_growth %>% 
-  filter(Day %in% c(0, 7, 14)) %>%
-  group_by(Grp, Day) %>%
-  summarize(mean_Size = mean(Size),
-            sd_Size = sd(Size))
-```
-
-<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/vBCEpR1NY7uFIClIX5lux?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
-
-
-## Digression: testing your `dplyr` knowledge
-
-```{r, echo = T, eval = F}
-tumor_growth %>% 
-  filter(Grp == "1.CTR") %>%
-  group_by(ID) %>% 
-  summarize(n = n()) %>% 
-  summarize(n = mean(n)) %>% 
-  pull(n) # pull extracts the named column as a vector
-```
-
-<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/lHzckr7Figsg47EdJjoOO?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
-
-
 ## One more time
 
-Open `03-exercise.Rmd` and complete the tasks. Work with your breakout room partners. 
-Answer the following question if desired
-
+Open `03-exercise.Rmd` and complete the tasks. Answer the following question if desired
 
 <iframe src="https://embed.polleverywhere.com/free_text_polls/itx18mT2LCePHk8nuZAPQ?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
 
