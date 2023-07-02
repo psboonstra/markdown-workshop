@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R Markdown"
 author: "https://github.com/psboonstra/markdown-workshop"
-date: "BDSI 2022; University of Michigan"
+date: "BDSI 2023; University of Michigan"
 geometry: margin=0.5in
 output: 
   ioslides_presentation:
@@ -46,7 +46,7 @@ image_scaler = 1#set to 0.6 for pdf_document, 1 for ioslides_presentation
 ## About me
 
 - Associate Professor in Biostatistics
-- Erstwhile PhD student at Michigan Biostatistics
+- Former PhD student at Michigan Biostatistics
 - R user and aficionado
 
 
@@ -211,7 +211,7 @@ include_graphics("images/knit_menu.png")
 ## Try it out: Option 1
 
   a. Download R (https://cran.r-project.org/)
-  b. Download RStudio to interface with R (https://www.rstudio.com/)
+  b. Download RStudio to interface with R (https://posit.co/)
   c. Go to https://github.com/psboonstra/markdown-workshop, then 'Code', then 'Download ZIP'
   
 ```{r, out.width = paste0(image_scaler*400,"px"), echo = F}
@@ -224,18 +224,14 @@ include_graphics("images/git_download.png")
   
 ## Try it out: Option 2 
 
-  a. Go to https://rstudio.cloud/ > Get Started
+  a. Go to https://posit.cloud/ > Get Started
   b. Create an account
   c. Click the dropdown menu *next to* the New Project button, and enter the workshop URL of the workshop repository: https://github.com/psboonstra/markdown-workshop
   d. Click on 'Files' at the bottom, and pull up `01-exercise.Rmd`
   
 ## Your turn
 
-Complete the tasks in `01-exercise.Rmd`. Answer the following question when you 
-are done
-
-<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/CxGiXDjOcIBduE9tbwmVO?controls=presentation&amp;force=--+none+--&amp;push=manual" width="40%" height="15%" frameBorder="0"></iframe> 
-
+Complete the tasks in `01-exercise.Rmd`. 
 
 ```{r, cache = FALSE, echo = FALSE}
 countdown(minutes = 8, seconds = 0)
@@ -407,11 +403,7 @@ using the same shortcut: *Cmd+Shift+K* / *Ctrl+Shift+K*
 
 ## Your turn again
 
-Open `02-exercise.R` and complete the tasks. Answer the following question
-when you are done
-
-<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/mn5LYOGSd1Ivrh84IfLTW?controls=presentation&amp;force=--+none+--&amp;push=manual" width="40%" height="15%" frameBorder="0"></iframe> 
-
+Open `02-exercise.R` and complete the tasks. 
 
 ```{r, cache = FALSE, echo = FALSE}
 countdown(minutes = 8, seconds = 0)
@@ -473,7 +465,7 @@ getwd()
 How did R know this was my desired working directory? Why did I not need to do this:
 
 ```{r, eval = FALSE}
-setwd("/Users/philb/Desktop/Work/BDSI2021/markdown-workshop")
+setwd("/Users/philb/Desktop/Work/BDSI2023/markdown-workshop")
 ```
 
 
@@ -516,9 +508,7 @@ To *open* an existing R project, find the `.Rproj` file or go to `File` >
 
 ## One more time
 
-Open `03-exercise.Rmd` and complete the tasks. Answer the following question if desired
-
-<iframe src="https://embed.polleverywhere.com/free_text_polls/itx18mT2LCePHk8nuZAPQ?controls=presentation&amp;force=--+none+--&amp;push=manual" width="100%" height="80%" frameBorder="0"></iframe> 
+Open `03-exercise.Rmd` and complete the tasks. 
 
 
 ```{r, cache = FALSE, echo = FALSE}

@@ -1,18 +1,16 @@
 #' ---
 #' title: "BDSI R Markdown: Exercise 2"
 #' author: "type your name here"
-#' date: "14-June-2021"
+#' date: "3-July-2023"
 #' geometry: margin=1.5cm
 #' output: 
-#'  html_document: 
+#'  html_document:
 #'    toc: yes
 #'  pdf_document: 
 #'    toc: yes
-#'  word_document:
+#'  word_document: 
 #'    toc: yes
 #' always_allow_html: yes    
-#' header-includes:
-#'  - \usepackage{booktabs}
 #' ---
 #' 
 #'<style type="text/css">
@@ -35,7 +33,9 @@ if(!require(knitr, quietly = TRUE)) {install.packages("knitr",repos = "http://cr
 
 #' # Main header
 #' 
-#' This exercise assumes you are reading the `R` script and not the knitted output. 
+#' This exercise assumes you are reading the `R` script and not the knitted
+#' output.
+#' 
 #' **Task 1** Add yourself as the author of this document on line 3. 
 #' 
 #' **Task 2** *Knit* this document using *Cmd+Shift+K* /
@@ -46,7 +46,7 @@ if(!require(knitr, quietly = TRUE)) {install.packages("knitr",repos = "http://cr
 #' 11 change `word_document` to `html_document`. **knitr** will 
 #' pay attention only to the first output selection and ignore all others. Don't 
 #' worry if what you knit doesn't look very pretty as a .docx. Now undo what you
-#' just did so that your selected output format is again a html 
+#' just did so that your selected output format is again an html.
 #' 
 #' ## Sub header
 #' 
@@ -71,15 +71,20 @@ if(!require(knitr, quietly = TRUE)) {install.packages("knitr",repos = "http://cr
 #' feature to maintain the readability of your text by starting a new line before 
 #' you start to spill off the screen of your text editor, like this: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 #' 
-#' On my RStudio application, I have set it to denote an 80-character width, 
-#' which is the approximate point at which I try to jump to a new line when I'm 
+#' On my RStudio application, I have set it to denote an 80-character width,
+#' which is the approximate point at which I try to jump to a new line when I'm
 #' typing.
+#'
+#' **Task 6** To do this on your own app: go to Tools > Global Options, then
+#' then Code > Display > Show Margin. Then enter your desired width under Margin
+#' Column. After pressing 'Ok', you should see a slight vertical line somewhere
+#' towards the right of your screen (depending on your chosen number).
 #' 
-#' **Task 6** To do this on your own app: go to the RStudio menu, 
-#' then Preferences > Code > Display > Show Margin. Then enter your desired 
-#' width. After pressing 'Ok', you should see a slight vertical line somewhere 
-#' towards the right of your screen (depending on your chosen number). 
-
+#' 
+#' **Task 7** Once you have set margins, you can tell RStudio to automatically add a 
+#' line break to any line that goes past the margin. This is called 'reflowing'. First, 
+#' highlight the paragraph to be reflowed, and then go to Code > Reflow Comment. On
+#' a Mac, the keyboard shortcut is  *Shift+Ctrl+/*. Practice by reflowing this paragraph.
 
 
 #+ echo = F, cache = F
@@ -96,7 +101,7 @@ y = 3 * x + rnorm(length(x));
 #' ## Some data analysis
 #' 
 #' I'm using an in-line chunk to report that the observed mean of `x` is `r mean(x)`
-#' **Task 7** Add another in-line chunk to report the observed standard deviation
+#' **Task 8** Add another in-line chunk to report the observed standard deviation
 #' of `x`. 
 #' 
 #' ## The Datasaurus dozen
@@ -143,10 +148,21 @@ print(datasaurus_summarized)
 kable(datasaurus_summarized);
 
 #' We can also use the **kableExtra** package to make our tables extra fancy. 
-#' However, this makes use of some features that will not work for all file 
-#' formats.
+#' Below we have an improved version of the table above:
+
+#+ echo=T, cache = F
+
+if(!require(kableExtra, quietly = TRUE)) {install.packages("kableExtra",repos = "http://cran.us.r-project.org");library(kableExtra);}
+
+kable(datasaurus_summarized) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  add_header_above(c(" " = 1, "Summary statistics" = 5));
+
+
+#' However, **kableExtra** makes use of some features that will not work for all
+#' file formats.
 #' 
-#' **Task 8** To see this, go back to the YAML header of this document and, 
+#' **Task 9** To see this, go back to the YAML header of this document and, 
 #' again, On line 7 change `html_document` to `word_document`, and on line
 #' 11 change `word_document` to `html_document`. After knitting, go back to 
 #' this table: it's just a jumbled mess. Do the same thing, now knitting
@@ -157,16 +173,6 @@ kable(datasaurus_summarized);
 #' formats, it will not always be formatted as expected. MS Word files are very 
 #' different from html, which are very different from pdf files. I find pdf
 #' files to be the most pleasing to look at and easiest to share with collaborators.
-
-#+ echo=T, cache = F
-
-if(!require(kableExtra, quietly = TRUE)) {install.packages("kableExtra",repos = "http://cran.us.r-project.org");library(kableExtra);}
-
-kable(datasaurus_summarized, 
-      booktabs = T) %>%
-  kable_styling(latex_options = c("striped"), 
-                stripe_color = "#DFDFDF") %>%
-  add_header_above(c(" " = 1, "Summary statistics" = 5));
 
 
 #' Visually, the datasets look much different:
