@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R Markdown"
 author: "https://github.com/psboonstra/markdown-workshop"
-date: "BDSI 2023; University of Michigan"
+date: "BDSI 2024; University of Michigan"
 geometry: margin=0.5in
 output: 
   ioslides_presentation:
@@ -226,7 +226,8 @@ include_graphics("images/git_download.png")
 
   a. Go to https://posit.cloud/ > Get Started
   b. Create an account
-  c. Click the dropdown menu *next to* the New Project button, and enter the workshop URL of the workshop repository: https://github.com/psboonstra/markdown-workshop
+  c. Click the dropdown menu *next to* the New Project button, select 'New Project
+  from Git Repository', and enter this URL: https://github.com/psboonstra/markdown-workshop
   d. Click on 'Files' at the bottom, and pull up `01-exercise.Rmd`
   
 ## Your turn
@@ -254,27 +255,27 @@ If you name a variable in an earlier code chunk, you can refer to it again in a 
 ```{r, echo = TRUE}
 x <- rnorm(20)
 y <- 3 * x + rnorm(length(x))
-foo = tibble(x = x, y = y)
+my_data = tibble(x = x, y = y)
 ```
 
 ## Later code chunk
 
 ```{r, echo = TRUE, fig.height = 4, fig.width = 4}
 library(ggplot2)
-ggplot(data = foo) + 
+ggplot(data = my_data) + 
   geom_point(aes(x, y))
 ```
 
 ## Tables
 
 ```{r, echo = TRUE}
-foo
+my_data
 ```
 
 ## Tables using 'kable'
 
 ```{r}
-kable(foo)
+kable(my_data)
 ```
 
 # Random lessons I've learned

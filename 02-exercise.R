@@ -40,7 +40,7 @@ if(!require(knitr, quietly = TRUE)) {install.packages("knitr",repos = "http://cr
 #' 
 #' **Task 2** *Knit* this document using *Cmd+Shift+K* /
 #' *Ctrl+Shift+K*. Note how Markdown creates an automatic table of contents 
-#' with click-able links. 
+#' with click-able links. Or use the `render` command. 
 #' 
 #' **Task 3** On line 7 change `html_document` to `word_document`, and on line
 #' 11 change `word_document` to `html_document`. **knitr** will 

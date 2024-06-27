@@ -38,13 +38,28 @@ running code chunks, and I find it obnoxious, so I always use `chunk_output_type
 
 ### Task 2
 
-To create a final, finished product of your work to share with your partner,
-children, parents, grocer, or labmates, click the *Knit* button or press
+Before going further, We'll need to install the `rmarkdown` package. Run the 
+following code (this may take a minute or two). This will check to see if
+you have already installed the `rmarkdown` package and, if not, install it.
+
+```{r}
+if(!require(rmarkdown, quietly = TRUE)) {install.packages("rmarkdown",repos = "http://cran.us.r-project.org");library(rmarkdown)}
+```
+
+Having installed this package, you can create a final, finished product of your
+work to share with your partner, children, parents, grocer, or labmates. Click
+the *Knit* button or press
 *Cmd+Shift+K* (*Ctrl+Shift+K*) to create a compiled version of your entire
-document that should automatically open in a separate window. The current
-setting will create an html document that you can open in a browser. Inspect the
-knitted html file and observe that, in the code chunk above, both the operation
-(`3+3`) and the answer (`6`) are printed as if they were run in an `R` console.
+document that should automatically open in a separate window. If the keyboard
+shortcut doesn't work, you can alternatively run the R command
+`rmarkdown::render()`. A popup window may prompt you to install some R packages
+in order to knit. You should do so. Note that these will be installed in this
+virtual workspace, not your own computer.
+
+The current setting will create an html document that you can open in a browser.
+Inspect the knitted html file and observe that, in the code chunk above, both
+the operation (`3+3`) and the answer (`6`) are printed as if they were run in an
+`R` console.
 
 ### Task 3
 
@@ -126,6 +141,10 @@ file and choose the 'Knit to Word' option. Inspect the top of the `.Rmd` file
 again; what was added? 
 
 ### When you are done
+
+We'll need some more R packages installed for the next exercises, so install
+the following packages while you wait. Copy and paste the following code 
+into your console: `install.packages(c("tidyverse","datasauRus", "kableExtra"))`.
 
 Compiling to html files is a bit clunky, and Word documents don't always look 
 the nicest. I usually knit to PDF, but this requires a few preparatory steps if 
